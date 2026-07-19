@@ -18,6 +18,7 @@ specifics or hedged.
 | # | Contest | Findings (H/M) | My hits | Notable |
 |---|---|---|---|---|
 | 8 | 2024-05-loop | 1H/0M | **1H (clean)** | 1-for-1, 0 false positives. Full coverage + balance-delta check + confident claim. Warm-up validated the method. |
+| 9 | 2024-03-ondo-finance | 1H/4M | 0 | Coverage mis-aim: drilled rOUSG rebase math (correctly cleared, no FP) but all findings were in OUSGInstantManager (USDC-peg mint) I didn't read. Lesson: start at the money-ENTRY function. |
 
 ## Batch summary (passes 4–7, the /goal loop)
 7 blind contests total. Curve: 0 → 1 → 3 → 0 → 3 → 0 → 1(+partial). Confounds are

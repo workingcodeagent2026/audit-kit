@@ -61,6 +61,12 @@ fake units). Fix: for these high-frequency areas, run a checklist, not vibes.
 finding until every value-moving file has been opened. (In BakerFi I fetched 4
 of 32 and missed 3 Highs living in files I never read.)
 
+**Start at the money-entry function, not the token math** (Ondo lesson): read
+the mint/redeem/deposit/withdraw/liquidate ENTRY points FIRST — that is where
+value crosses the trust boundary and where peg/price assumptions bite (Ondo H-01
+was a USDC 1:1 assumption at the mint entry; I drilled the rebasing token math
+instead and scored 0). Then trace each entry's price/peg source (SOURCE rule).
+
 **Famous-pattern bias killer:** before submitting a pattern-matched finding,
 point to a concrete line in *this* code. A memory of another contest is not
 evidence.
