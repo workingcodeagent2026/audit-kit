@@ -16,8 +16,17 @@ you systematically miss. Never read the findings before writing predictions.
 1. **Select** — pick from `curriculum.md`. Vary difficulty deliberately (a
    4-finding contest and a 19-finding one teach different things; same-size
    back-to-back controls for the "buggier target" confound).
-2. **Scope & cover** — list every in-scope `.sol`; read them all before writing
-   anything (the BakerFi coverage-gate lesson). Small-scope contests first.
+2. **Scope & cover** (THE GREATEST WEAKNESS — see references/diagnosis-greatest-weakness.md):
+   Every zero-hit round in 10 contests was a coverage failure. So, mandatory:
+   - Write a **coverage map**: one line per in-scope `.sol` ("what value does it
+     move") BEFORE any prediction. An unwritten line is a visible gap.
+   - Read in **money-entry order**: deposit/mint/redeem/withdraw/liquidate/swap
+     FIRST, then their math, then config/periphery (bugs cluster at the value
+     boundary — Ondo was 0/5 for reading token math not the mint entry).
+   - **Match scope to budget & DECLARE uncovered parts.** Silent partial coverage
+     masquerading as a full audit is the failure; declared scoping is fine.
+   - Record **coverage %** for the pass so a low-hit result is diagnosed as a
+     coverage vs. skill failure.
 3. **Blind predict** — run the methodology (unit-audit pass FIRST), write
    `research-<name>-predictions.md`: ranked hypotheses, each tied to a line.
    Claim-what-you-can-verify; hedge only facts needing unread code.
