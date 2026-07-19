@@ -26,6 +26,11 @@ specifics or hedged.
 |---|---|---|---|---|
 | 11 | 2024-03-abracadabra | 4H/16M | 1H + 1M (+1 FP) | 29 files. Coverage-first executed: mapped all, read value boundary, DECLARED uncovered. AB1→H-04 (LP spot-oracle) clean. AB2→M-10 (missing return, over-rated sev). AB3 flashLoan &&→ FALSE POSITIVE (unverified logic-High). Forfeited 2H+13M in declared-uncovered files (predictable). Coverage RECURSES to function level (missed H-01/H-02 in a file I "read"). |
 
+## Batch 4 (function-level coverage drill)
+| # | Contest | Findings (H/M) | My hits | Notable |
+|---|---|---|---|---|
+| 12 | 2024-01-curves | 5H/10M | **3H + 1M (+1 partial)** | 🏆 BEST PASS. Function-level coverage caught H-01 (array-DoS, clean), H-02 (onBalanceChange, as lead), H-03 (honeypot, under-rated sev), M-09 (refund). 0 false positives. Both misses (H-04/H-05) in DECLARED-uncovered files (FeeSplitter/Security). Reading _transfer prevented a FP. Validates the whole consolidated method end-to-end. |
+
 ## Batch 2 read (playbooks + subagent research)
 3 passes: loop 1/1 clean · ondo 0 (coverage mis-aim) · size 1 clean (THE units
 class, caught blind for the first time). The research→playbook→apply loop
