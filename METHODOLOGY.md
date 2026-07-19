@@ -80,11 +80,18 @@ was read and the bug missed while chasing narrative bugs. So:
 - **Trace every loop's index arithmetic on paper** (Canto H-02 was
   `i + BLOCK_EPOCH` where `epoch + BLOCK_EPOCH` was intended).
 
-**Confidence calibration (learned the hard way):** narrative "Highs"
-(governance DoS, funding/solvency, access control) were 0-for-4 across two
-contests; unit/precision/loop-arithmetic bugs were the real Highs. Audit the
-boring arithmetic first and hardest; do not label a narrative bug a confident
-High.
+**Confidence calibration (learned across three blind rounds):**
+- Rounds 1–2: narrative "Highs" (governance DoS, funding/solvency, access
+  control) were 0-for-4; unit/precision/loop-arithmetic were the real Highs.
+  Audit the boring arithmetic first and hardest.
+- Round 3: the unit-audit-first pass landed its first confident High (a
+  `tvl - totalSupply` underflow). But I *hedged* two other real Highs whose
+  proof was already in the code I'd read (a vault provably missing an `oracle()`
+  function). **Claim-what-you-can-verify:** if the fact that makes a finding
+  true is present in the read source — a missing function, a wrong unit, an
+  unchecked range — assert it at full severity with the line as proof. Hedging
+  is only for facts that genuinely require code you haven't read. Discipline
+  means "no claim without evidence," not "hedge claims that have evidence."
 
 ## What NOT to do
 - Don't submit unverified "plausible" findings — the reports version of the
