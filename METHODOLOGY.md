@@ -67,6 +67,11 @@ evidence.
 
 ## Unit audit — the #1 High in BOTH blind tests (do this first, hardest)
 
+> Full researched, cited procedure with the 7 named bug patterns and the SOURCE
+> rule: **`references/units-precision-playbook.md`** — read it before this pass.
+> Run Slither's `divide-before-multiply` first as a cheap sweep.
+
+
 Across two blind contests the top-severity finding was a **unit/semantic
 mismatch** (trap #2 generalized): BakerFi used an 8-decimal price as 18-decimal;
 Canto passed a block number where a timestamp was expected. Both times the line
