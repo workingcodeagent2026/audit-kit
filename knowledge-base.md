@@ -9,6 +9,16 @@ Legend: ✅ we've hit this class · ❌ we've missed it (priority to drill) · �
 
 ---
 
+## Caller-controlled parameter trusted as truth ✅ (produced 2 confident Highs)
+**Pattern:** a function accepts a parameter it should derive from state, and uses
+it for limits/pricing/attributes. Or a randomness/attribute source is caller-
+supplied.
+**Heuristic:** for every external-fn parameter, ask "should this be read from
+storage instead?" And check EVERY parameter of a buggy function — including its
+**type width** (a `uint8 tokenId` silently caps at 255).
+**Examples:** AI Arena H-04 (reRoll trusts `fighterType` param), H-03 (attributes
+from caller DNA string), H-06 (`uint8 tokenId` — missed, same line as H-04).
+
 ## Units & semantics ❌ (our #1 recurring miss — the top High in 2/3 contests)
 **Pattern:** two quantities in different units are compared/added/passed as if
 identical. Decimals (8 vs 18), wei vs token, per-share vs absolute, **block
