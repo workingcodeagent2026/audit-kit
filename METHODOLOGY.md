@@ -65,6 +65,27 @@ of 32 and missed 3 Highs living in files I never read.)
 point to a concrete line in *this* code. A memory of another contest is not
 evidence.
 
+## Unit audit — the #1 High in BOTH blind tests (do this first, hardest)
+
+Across two blind contests the top-severity finding was a **unit/semantic
+mismatch** (trap #2 generalized): BakerFi used an 8-decimal price as 18-decimal;
+Canto passed a block number where a timestamp was expected. Both times the line
+was read and the bug missed while chasing narrative bugs. So:
+
+- For **every quantity**, name its unit: decimals? wei vs. token? per-share vs.
+  absolute? **block number vs. timestamp?** basis points vs. ratio? Then check
+  every place it is used/compared/passed expects that same unit.
+- For **every cross-contract call argument**, verify the callee's expected unit
+  (read the interface/NatSpec) — do not assume it matches yours.
+- **Trace every loop's index arithmetic on paper** (Canto H-02 was
+  `i + BLOCK_EPOCH` where `epoch + BLOCK_EPOCH` was intended).
+
+**Confidence calibration (learned the hard way):** narrative "Highs"
+(governance DoS, funding/solvency, access control) were 0-for-4 across two
+contests; unit/precision/loop-arithmetic bugs were the real Highs. Audit the
+boring arithmetic first and hardest; do not label a narrative bug a confident
+High.
+
 ## What NOT to do
 - Don't submit unverified "plausible" findings — the reports version of the
   wbCOIN trap. Every finding needs a concrete path: inputs → wrong state.
