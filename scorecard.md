@@ -12,6 +12,15 @@ specifics or hedged.
 | 4 | 2024-03-pooltogether | 1H/8M | 0 + 1 partial | ~8 | Mature target; under-covered (budget). Missed M-03 in code I read → new "predictor vs executor" class. |
 | 5 | 2024-02-ai-arena | 8H/9M | 2H + 1H-lead + 1 partial | ~13 | Best hit-quality. "Claim what you can verify" produced 2 confident Highs (H-04, H-03). Confound: bug-dense. Missed 2nd bug on a line I read (H-06 uint8). |
 | 6 | 2024-03-revert-lend | 6H/27M | 0 | ~33 | Worst outcome vs opportunity. OVER-CLEARED a robust-looking oracle that had 4+ findings incl. M-27 sequencer (on my checklist). Lesson: run checklists as written yes/no boxes, not vibes. |
+| 7 | 2024-07-basin | 2H/2M | 1M (lead) + 1 partial | ~4 | Lean target. Hit LUT non-convergence (M-01) as flagged lead. Missed H-02 decimals-decode — units blind spot ONE LAYER DEEPER (cleared math, didn't read the decoder). |
+
+## Batch summary (passes 4–7, the /goal loop)
+7 blind contests total. Curve: 0 → 1 → 3 → 0 → 3 → 0 → 1(+partial). Confounds are
+real (target bug-density ranged 4–33 findings). **The single durable weakness
+across ALL rounds: units/decimals at their SOURCE** — top-severity in BakerFi,
+Canto, Revert Lend, Basin; missed each time by trusting a value's origin instead
+of reading it. Every other class is intermittently caught. Next drill: nothing
+but unit-source tracing until it stops being the recurring miss.
 
 ## Curve read (honest)
 0 → 1 → 3 hits. Real upward trend, BUT round 3's target had 19 findings vs.

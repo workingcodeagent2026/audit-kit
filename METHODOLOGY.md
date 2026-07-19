@@ -75,6 +75,11 @@ was read and the bug missed while chasing narrative bugs. So:
 - For **every quantity**, name its unit: decimals? wei vs. token? per-share vs.
   absolute? **block number vs. timestamp?** basis points vs. ratio? Then check
   every place it is used/compared/passed expects that same unit.
+- **Trace each unit to its SOURCE function and READ that function** — the
+  decoder, the config setter, the oracle's `decimals()`. Three contests
+  (BakerFi, Revert Lend, Basin H-02) had a decimals High I missed by clearing
+  the math that *uses* a unit while never opening the function that *produces*
+  it. An unread source = an uncleared unit. Do not trust an upstream helper.
 - For **every cross-contract call argument**, verify the callee's expected unit
   (read the interface/NatSpec) — do not assume it matches yours.
 - **Trace every loop's index arithmetic on paper** (Canto H-02 was
