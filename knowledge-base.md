@@ -25,7 +25,13 @@ storage instead?" And check EVERY parameter of a buggy function — including it
 **Examples:** AI Arena H-04 (reRoll trusts `fighterType` param), H-03 (attributes
 from caller DNA string), H-06 (`uint8 tokenId` — missed, same line as H-04).
 
-## Units & semantics ❌ (our #1 recurring miss — the top High in 2/3 contests)
+## Units & semantics 🔶 (was our #1 miss; CAUGHT once blind via the playbook)
+> Update: after building `references/units-precision-playbook.md`, caught Size
+> H-04 (liquidation reward in 6-dec debt vs 18-dec collateral, off by 1e12) as a
+> confident blind High — the exact class missed 0-for-4 before. Method that
+> worked: units playbook pattern #3 + "start at the liquidation/money-entry
+> function" + claim-what-you-verify. Keep drilling to make it reliable (still
+> missed the units decode bug in Basin when I didn't open the source fn).
 **Pattern:** two quantities in different units are compared/added/passed as if
 identical. Decimals (8 vs 18), wei vs token, per-share vs absolute, **block
 number vs timestamp**, basis points vs ratio.

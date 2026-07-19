@@ -19,6 +19,14 @@ specifics or hedged.
 |---|---|---|---|---|
 | 8 | 2024-05-loop | 1H/0M | **1H (clean)** | 1-for-1, 0 false positives. Full coverage + balance-delta check + confident claim. Warm-up validated the method. |
 | 9 | 2024-03-ondo-finance | 1H/4M | 0 | Coverage mis-aim: drilled rOUSG rebase math (correctly cleared, no FP) but all findings were in OUSGInstantManager (USDC-peg mint) I didn't read. Lesson: start at the money-ENTRY function. |
+| 10 | 2024-06-size | 4H/13M | **1H (clean)** | 🎯 PAYOFF: SZ1→H-04, the units-at-source liquidation-reward decimal mismatch (6-dec vs 18-dec, 1e12x) — the EXACT class missed 0-for-4 before. Researched units playbook + start-at-liquidation + claim-what-you-verify caught it blind. Missed H-03 (2nd bug, same fn) + H-01/02 (coverage). |
+
+## Batch 2 read (playbooks + subagent research)
+3 passes: loop 1/1 clean · ondo 0 (coverage mis-aim) · size 1 clean (THE units
+class, caught blind for the first time). The research→playbook→apply loop
+demonstrably converted our #1 durable weakness into a caught High. Remaining
+gaps are now COVERAGE (read all money-entry files) and STOPPING-AT-FIRST-BUG
+(check neighbors), not the units blind spot itself.
 
 ## Batch summary (passes 4–7, the /goal loop)
 7 blind contests total. Curve: 0 → 1 → 3 → 0 → 3 → 0 → 1(+partial). Confounds are
