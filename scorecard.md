@@ -14,6 +14,11 @@ specifics or hedged.
 | 6 | 2024-03-revert-lend | 6H/27M | 0 | ~33 | Worst outcome vs opportunity. OVER-CLEARED a robust-looking oracle that had 4+ findings incl. M-27 sequencer (on my checklist). Lesson: run checklists as written yes/no boxes, not vibes. |
 | 7 | 2024-07-basin | 2H/2M | 1M (lead) + 1 partial | ~4 | Lean target. Hit LUT non-convergence (M-01) as flagged lead. Missed H-02 decimals-decode — units blind spot ONE LAYER DEEPER (cleared math, didn't read the decoder). |
 
+## Batch 2 (playbooks + subagent research active)
+| # | Contest | Findings (H/M) | My hits | Notable |
+|---|---|---|---|---|
+| 8 | 2024-05-loop | 1H/0M | **1H (clean)** | 1-for-1, 0 false positives. Full coverage + balance-delta check + confident claim. Warm-up validated the method. |
+
 ## Batch summary (passes 4–7, the /goal loop)
 7 blind contests total. Curve: 0 → 1 → 3 → 0 → 3 → 0 → 1(+partial). Confounds are
 real (target bug-density ranged 4–33 findings). **The single durable weakness
