@@ -61,6 +61,20 @@ fake units). Fix: for these high-frequency areas, run a checklist, not vibes.
 finding until every value-moving file has been opened. (In BakerFi I fetched 4
 of 32 and missed 3 Highs living in files I never read.)
 
+**Coverage recurses to the function level** (Abracadabra lesson): reading a
+money-entry FILE is not reading it. In each such file, enumerate and read EVERY
+value/price-mutating function — swap AND `_twapUpdate` AND init AND sync AND
+liquidate. Abracadabra H-01/H-02 lived in MagicLP functions I skipped while
+"reading" the file (I read swap/flashLoan only). Partial-file coverage = the
+coverage failure at smaller scale.
+
+**Verify the exploit path before asserting a logic-bug High** (Abracadabra AB3
+false positive): claim-what-you-verify is reliable for missing-code / units /
+wrong-denomination bugs (the fact is on the line). For a LOGIC bug (a `&&` that
+"should" be `||`), the verification must be a TRACED exploit, not your own
+plausibility argument — otherwise you over-claim. Downgrade unverified
+logic-Highs to leads.
+
 **Start at the money-entry function, not the token math** (Ondo lesson): read
 the mint/redeem/deposit/withdraw/liquidate ENTRY points FIRST — that is where
 value crosses the trust boundary and where peg/price assumptions bite (Ondo H-01

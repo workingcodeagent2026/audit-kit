@@ -21,6 +21,11 @@ specifics or hedged.
 | 9 | 2024-03-ondo-finance | 1H/4M | 0 | Coverage mis-aim: drilled rOUSG rebase math (correctly cleared, no FP) but all findings were in OUSGInstantManager (USDC-peg mint) I didn't read. Lesson: start at the money-ENTRY function. |
 | 10 | 2024-06-size | 4H/13M | **1H (clean)** | 🎯 PAYOFF: SZ1→H-04, the units-at-source liquidation-reward decimal mismatch (6-dec vs 18-dec, 1e12x) — the EXACT class missed 0-for-4 before. Researched units playbook + start-at-liquidation + claim-what-you-verify caught it blind. Missed H-03 (2nd bug, same fn) + H-01/02 (coverage). |
 
+## Batch 3 (coverage-stress test — coverage-first protocol)
+| # | Contest | Findings (H/M) | My hits | Notable |
+|---|---|---|---|---|
+| 11 | 2024-03-abracadabra | 4H/16M | 1H + 1M (+1 FP) | 29 files. Coverage-first executed: mapped all, read value boundary, DECLARED uncovered. AB1→H-04 (LP spot-oracle) clean. AB2→M-10 (missing return, over-rated sev). AB3 flashLoan &&→ FALSE POSITIVE (unverified logic-High). Forfeited 2H+13M in declared-uncovered files (predictable). Coverage RECURSES to function level (missed H-01/H-02 in a file I "read"). |
+
 ## Batch 2 read (playbooks + subagent research)
 3 passes: loop 1/1 clean · ondo 0 (coverage mis-aim) · size 1 clean (THE units
 class, caught blind for the first time). The research→playbook→apply loop
