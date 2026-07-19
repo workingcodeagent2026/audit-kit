@@ -36,6 +36,11 @@ specifics or hedged.
 |---|---|---|---|---|
 | 13 | 2025-02-yieldoor (Sherlock) | 9 confirmed + disputes | **1 confirmed hit** | Units GENERALIZES across platforms: Y1 (÷.decimals() not ÷10**decimals) = confirmed "incorrect decimal handling" finding, my headline prediction. Y3→disputed "Insufficient Decimal". Y2/Y4 oracle Highs NOT rewarded — Sherlock ADMIN-TRUST rules invalidate owner-config findings (platform-rules lesson). Misses in uncovered tick math. |
 
+## Batch 6 (platform-aware calibration — read rules FIRST)
+| # | Contest | Findings | My hits | Notable |
+|---|---|---|---|---|
+| 14 | 2025-04-aegis (Sherlock) | 3 confirmed | 1 directional (lead) + 0 FP | PROCESS WIN: read Sherlock rules + README FIRST → pre-filtered staleness/admin/weird-token (all correctly — none were real findings), CLEARED mint decimals (no FP), aimed at README invariant (assets≥liabilities) → landed on finding #3 (insolvency via unbacked redemption fees) as a lead. 2 misses coverage-attributable. Platform rules now part of the method. |
+
 ## Batch 2 read (playbooks + subagent research)
 3 passes: loop 1/1 clean · ondo 0 (coverage mis-aim) · size 1 clean (THE units
 class, caught blind for the first time). The research→playbook→apply loop
