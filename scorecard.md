@@ -31,6 +31,11 @@ specifics or hedged.
 |---|---|---|---|---|
 | 12 | 2024-01-curves | 5H/10M | **3H + 1M (+1 partial)** | 🏆 BEST PASS. Function-level coverage caught H-01 (array-DoS, clean), H-02 (onBalanceChange, as lead), H-03 (honeypot, under-rated sev), M-09 (refund). 0 false positives. Both misses (H-04/H-05) in DECLARED-uncovered files (FeeSplitter/Security). Reading _transfer prevented a FP. Validates the whole consolidated method end-to-end. |
 
+## Batch 5 (platform generalization — SHERLOCK)
+| # | Contest | Findings | My hits | Notable |
+|---|---|---|---|---|
+| 13 | 2025-02-yieldoor (Sherlock) | 9 confirmed + disputes | **1 confirmed hit** | Units GENERALIZES across platforms: Y1 (÷.decimals() not ÷10**decimals) = confirmed "incorrect decimal handling" finding, my headline prediction. Y3→disputed "Insufficient Decimal". Y2/Y4 oracle Highs NOT rewarded — Sherlock ADMIN-TRUST rules invalidate owner-config findings (platform-rules lesson). Misses in uncovered tick math. |
+
 ## Batch 2 read (playbooks + subagent research)
 3 passes: loop 1/1 clean · ondo 0 (coverage mis-aim) · size 1 clean (THE units
 class, caught blind for the first time). The research→playbook→apply loop

@@ -54,6 +54,15 @@ neighbor-sweep every buggy line). Run oracle/unit checklists as written boxes.
 Everything else is intermittently caught; these five are where we systematically
 bled.
 
+## Platform rules are part of the target (Sherlock lesson)
+The method generalizes across platforms (Yieldoor/Sherlock: my headline units
+prediction Y1 = a confirmed finding). BUT judging rules differ: Sherlock's
+**admin-trust** rules invalidate findings that assume trusted-admin
+misconfiguration — my oracle-staleness/bounds Highs (valid on C4) were NOT
+rewarded because the PriceFeed is owner-configured. Before each contest, read the
+platform's severity/validity rules (admin-trust, "will/would", external-condition
+requirements) and down-weight findings those rules exclude.
+
 ## The trajectory (honest)
 11 contests. Clean Highs on loop (1/1) and size (the units class, first time).
 Zero-hits all coverage-driven. The arc: units blind spot → researched → caught;
