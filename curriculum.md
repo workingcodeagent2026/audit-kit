@@ -33,6 +33,14 @@ to drill, and vary difficulty (findings count) to control confounds. "Findings"
 **Governance / voting / timelock**
 - 2024-03-dittoeth — order-book + governance
 
+**Fresh queue (scouted, unseen — for the unit-source drill batch)**
+- 2024-01-decent — cross-chain (12 files, lean — good for coverage gate)
+- 2024-01-salty — DEX/staking (37 files)
+- 2024-08-wildcat — undercollateralized lending (39 files)
+- 2024-06-vultisig — token/vault (50 files)
+Priority: run these AFTER folding in the deep-research units playbook, applying
+the "trace every unit to its source function and read it" procedure.
+
 ## How to extend this file
 When you finish a contest, move it to "Done" with the result, and when you find
 a subject not represented, add a queue entry. Prefer small-scope (<12 in-scope
