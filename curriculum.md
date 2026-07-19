@@ -33,13 +33,22 @@ to drill, and vary difficulty (findings count) to control confounds. "Findings"
 **Governance / voting / timelock**
 - 2024-03-dittoeth — order-book + governance
 
-**Fresh queue (scouted, unseen — for the unit-source drill batch)**
-- 2024-01-decent — cross-chain (12 files, lean — good for coverage gate)
-- 2024-01-salty — DEX/staking (37 files)
-- 2024-08-wildcat — undercollateralized lending (39 files)
-- 2024-06-vultisig — token/vault (50 files)
-Priority: run these AFTER folding in the deep-research units playbook, applying
-the "trace every unit to its source function and read it" procedure.
+**Fresh queue (subagent-scouted & verified — ranked for units/liquidation drill)**
+| slug | domain | scope | H/M | why |
+|---|---|---|---|---|
+| 2024-05-loop | leveraged-staking points | 1 file, 296 nSLOC | 1H/0M | ideal 100%-coverage warm-up |
+| 2024-03-ondo-finance | RWA stablecoin (rebasing decimals) | 3 files, 851 | 1H/4M | units/rebase drill |
+| 2024-02-spectra | yield tokenization (PT/YT rate math) | 7 files, 976 | 0H/2M | decimal/rate math |
+| 2024-01-curves | bonding-curve fee/pricing math | 5 files, 660 | 5H/10M | unit math, bug-dense |
+| 2024-11-ethena-labs | stablecoin mint/redeem accounting | 4 files, 665 | 0H/2M | collateral accounting |
+| 2024-06-size | credit/lending marketplace | 32 files, 2.6k | 4H/13M | STRONGEST liquidation+units target (decimal-mismatch reward bugs) |
+| 2024-03-abracadabra-money | CDP + AMM oracle | ~22 files | public | CDP/oracle stretch |
+| 2024-05-predy | perps/gamma on Uni v3 | 54 files | 4H/8M | liquidation depth stretch |
+
+Also-scouted (earlier): 2024-01-decent, 2024-01-salty, 2024-08-wildcat, 2024-06-vultisig.
+Priority order for the next batch: loop (warm-up) → ondo/spectra/ethena (unit-source
+drill w/ the units playbook) → size (liquidation+units, weak-classes playbook) →
+curves (bug-dense unit math). Apply references/*-playbook.md on every pass.
 
 ## How to extend this file
 When you finish a contest, move it to "Done" with the result, and when you find
