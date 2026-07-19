@@ -7,6 +7,12 @@ context before an audit.
 
 Legend: ✅ we've hit this class · ❌ we've missed it (priority to drill) · 🔶 partial
 
+**Deep references (researched, cited):** `references/units-precision-playbook.md`
+(7 unit/decimal patterns + SOURCE rule), `references/weak-classes-playbook.md`
+(liquidation math, double-counting, flash-loan bypass — with heuristics),
+`references/emerging-classes-2024-2025.md` (10 new classes: transient storage,
+EIP-7702, cross-chain replay, read-only reentrancy, ERC-4337, fee-on-transfer…).
+
 ---
 
 ## Caller-controlled parameter trusted as truth ✅ (produced 2 confident Highs)
