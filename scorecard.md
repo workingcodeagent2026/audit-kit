@@ -9,6 +9,7 @@ specifics or hedged.
 | 1 | 2024-05-bakerfi | 4H/8M | 0 | ~12 | Read the decimals-High line and missed it. Blind spot #1: units. |
 | 2 | 2024-01-canto | 2H/2M | 1 Med + 1 partial | 2H | Coverage gate worked (1 file). Missed block-vs-timestamp High = units again. |
 | 3 | 2024-04-dyad | 10H/9M | 2H + 1M | ~15 | First confident-High hit (unit-audit pass). Confound: buggy target. Hedged a verifiable High. |
+| 4 | 2024-03-pooltogether | 1H/8M | 0 + 1 partial | ~8 | Mature target; under-covered (budget). Missed M-03 in code I read → new "predictor vs executor" class. |
 
 ## Curve read (honest)
 0 → 1 → 3 hits. Real upward trend, BUT round 3's target had 19 findings vs.

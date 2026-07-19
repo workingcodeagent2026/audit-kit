@@ -86,6 +86,17 @@ address balance / a low-liquidity pool?
 **Examples:** DYAD M-09 (kerosine price via denominator = supply − owner
 balance); DVD Puppet (spot pool oracle).
 
+## Predictor vs. executor mismatch ❌ (drill — same family as units)
+**Pattern:** a function that *predicts/limits* an action uses a different
+mechanism than the function that *executes* it, so the limit is wrong.
+**Heuristic:** for every max/preview/limit function, find the executor it guards
+and confirm they use the SAME underlying call. `maxDeposit` via
+`maxDeposit()` but deposit via `mint()`; `getPrecision()` says 18 but code
+returns 8; preview via `convertToAssets` but exec via `previewRedeem`.
+**Examples (missed — read the lines, didn't connect them):** PoolTogether M-03
+(maxDeposit/maxDeposit() vs mint()), M-02 (convertToAssets vs previewRedeem);
+BakerFi decimals (getPrecision vs raw answer).
+
 ## Flash-loan-protection bypass ❌ (drill)
 **Pattern:** anti-flash-loan guard (same-block deposit flag) circumvented via
 zero-value calls, fake tokens, or self-interaction.
