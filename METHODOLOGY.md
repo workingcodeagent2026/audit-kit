@@ -37,6 +37,34 @@ Read target code asking these questions first:
 5. **Classic sweep:** reentrancy (CEI), unchecked returns, arithmetic edges.
 6. **Write findings as you go** — never batch at the end; you lose the repro.
 
+## Mechanical checklists (added after the BakerFi research — see research-bakerfi-grading.md)
+
+Blind-testing this methodology on a real finished contest exposed a failure:
+it sent me to the right subsystems (oracles, vault shares) but I chased
+*memorable* bug patterns (L2 sequencer, Pyth confidence) and skated past the
+actual High — an 8-decimal Chainlink price used as 18-decimal (our own trap #2,
+fake units). Fix: for these high-frequency areas, run a checklist, not vibes.
+
+**Per oracle / price feed — tick every box, in order:**
+1. **Decimals.** What decimals does the feed return (Chainlink USD = 8, ETH = 18,
+   Pyth = expo)? Is it normalized to the protocol's precision? A missing
+   `* 10**(target-feed)` is a silent, high-severity mispricing.
+2. **Bounds.** Are `minAnswer`/`maxAnswer` circuit-breaker limits checked? A feed
+   pinned at its floor during a crash reads as a valid price.
+3. **Staleness.** Is `updatedAt` age-checked on the path actually used (not just
+   in a `getSafe*` variant nobody calls)?
+4. **Sequencer (L2 only).** Chainlink L2 Sequencer Uptime Feed checked?
+5. **Confidence (Pyth).** Is `price.conf` used / bounded?
+6. **Sign & cast.** `answer > 0` before casting signed→unsigned?
+
+**Coverage gate:** enumerate every in-scope file first. Do not write up a
+finding until every value-moving file has been opened. (In BakerFi I fetched 4
+of 32 and missed 3 Highs living in files I never read.)
+
+**Famous-pattern bias killer:** before submitting a pattern-matched finding,
+point to a concrete line in *this* code. A memory of another contest is not
+evidence.
+
 ## What NOT to do
 - Don't submit unverified "plausible" findings — the reports version of the
   wbCOIN trap. Every finding needs a concrete path: inputs → wrong state.
