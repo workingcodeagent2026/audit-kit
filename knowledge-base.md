@@ -36,12 +36,19 @@ exactly when the invariant is stressed.
 (esp. stressed) state? What breaks if it reverts?
 **Example:** DYAD H-08 — `tvl - dyad.totalSupply()` reverts when undercollateralized, trapping kerosine. (We predicted this via the unit-audit pass.)
 
-## Oracle robustness ❌/🔶
-**Pattern:** price feed consumed without full validation.
-**Heuristic (checklist, per feed):** decimals → min/maxAnswer bounds → staleness
-on the *used* path → L2 sequencer uptime → Pyth confidence → `answer > 0`.
-**Examples:** BakerFi M "min/maxAnswer not checked"; BakerFi decimals (above).
-TWAP variant: window must be long relative to pool liquidity (DVD Puppet V3).
+## Oracle robustness ❌/🔶 (also our over-CLEARING trap)
+**Pattern:** price feed consumed without full validation — OR an auditor
+declares a robust-*looking* feed "cleared" without box-checking it.
+**Heuristic — write a literal yes/no table per feed, never summarize as "robust":**
+decimals normalized (and no overflow at high decimals)? → min/maxAnswer bounds? →
+staleness on the *used* path? → L2 sequencer uptime? → Pyth confidence? →
+`answer > 0`? → TWAP negative-tick rounding? A robust-looking feed with
+cross-verification can still fail 4 boxes.
+**Examples:** BakerFi (decimals; min/maxAnswer). Revert Lend — I called the
+oracle "robust" and it had M-07 (decimals overflow), M-27 (missing sequencer —
+ON MY CHECKLIST), M-19 (manipulation), H-05 (TWAP negative-tick rounding). Ran
+the list as vibes, not boxes. TWAP window must also be long vs. liquidity (DVD
+Puppet V3).
 
 ## Reward / accounting desync ✅/🔶
 **Pattern:** the payout loop and the claimed/accounting update are not in

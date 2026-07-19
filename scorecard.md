@@ -11,6 +11,7 @@ specifics or hedged.
 | 3 | 2024-04-dyad | 10H/9M | 2H + 1M | ~15 | First confident-High hit (unit-audit pass). Confound: buggy target. Hedged a verifiable High. |
 | 4 | 2024-03-pooltogether | 1H/8M | 0 + 1 partial | ~8 | Mature target; under-covered (budget). Missed M-03 in code I read → new "predictor vs executor" class. |
 | 5 | 2024-02-ai-arena | 8H/9M | 2H + 1H-lead + 1 partial | ~13 | Best hit-quality. "Claim what you can verify" produced 2 confident Highs (H-04, H-03). Confound: bug-dense. Missed 2nd bug on a line I read (H-06 uint8). |
+| 6 | 2024-03-revert-lend | 6H/27M | 0 | ~33 | Worst outcome vs opportunity. OVER-CLEARED a robust-looking oracle that had 4+ findings incl. M-27 sequencer (on my checklist). Lesson: run checklists as written yes/no boxes, not vibes. |
 
 ## Curve read (honest)
 0 → 1 → 3 hits. Real upward trend, BUT round 3's target had 19 findings vs.
